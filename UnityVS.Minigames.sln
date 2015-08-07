@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Minigames.CSharp", "UnityVS.Minigames.CSharp.csproj", "{D0806B81-A14F-722E-8313-0122CC253C22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.Minigames.CSharp.Editor", "UnityVS.Minigames.CSharp.Editor.csproj", "{14182374-56E6-6F52-6E50-FB79E6425E94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D0806B81-A14F-722E-8313-0122CC253C22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0806B81-A14F-722E-8313-0122CC253C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0806B81-A14F-722E-8313-0122CC253C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0806B81-A14F-722E-8313-0122CC253C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14182374-56E6-6F52-6E50-FB79E6425E94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14182374-56E6-6F52-6E50-FB79E6425E94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14182374-56E6-6F52-6E50-FB79E6425E94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14182374-56E6-6F52-6E50-FB79E6425E94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
