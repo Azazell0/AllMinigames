@@ -149,7 +149,7 @@ public static class MiniGameHelper
     /// </summary>
     /// <param name="list">Указатель на список</param>
     /// <param name="iterationsCount">Количество итераций</param>
-    public static void ListRandomSort<T>(ref List<T> list, int iterationsCount) where T : MonoBehaviour
+    public static void ListRandomSort<T>(ref List<T> list, int iterationsCount)
     {
         if (list == null || list.Count < 2)
             return;
