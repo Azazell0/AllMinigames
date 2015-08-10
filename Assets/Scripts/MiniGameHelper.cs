@@ -127,7 +127,7 @@ public static class MiniGameHelper
     /// <typeparam name="T">Тип скрипта</typeparam>
     /// <param name="root">Трансформ-отец</param>
     /// <param name="list">Список</param>
-    public static void FindChildObjects<T>(Transform root, ref List<T> list) where T : MonoBehaviour
+    public static void FindChildObjects<T>(Transform root, ref List<T> list) where T : UnityEngine.Component
     {
         if (list == null)
             list = new List<T>();

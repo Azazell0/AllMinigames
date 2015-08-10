@@ -8,6 +8,7 @@ namespace Minigame17
         #region variables
 
         public PlateType type;
+        public Plate plate;
 
         #endregion
 

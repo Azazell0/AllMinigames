@@ -10,15 +10,14 @@ public class MiniGame28_Manager : MiniGameSingleton<MiniGame28_Manager>
     /// Лэйбл для отображения оставшегося времени
     /// </summary>
     public UILabel labelTime;
+    public UISprite spriteCarLarge;
+    public Car car1, car2, car3;
 
     /// <summary>
     /// Время до окончания игры
     /// </summary>
     private float _time = 0f;
-    /// <summary>
-    /// Количество совершенных игроком ошибок
-    /// </summary>
-    private int _errorCount = 0;
+    private Car _currentCar;
 
     #endregion
 
@@ -43,7 +42,16 @@ public class MiniGame28_Manager : MiniGameSingleton<MiniGame28_Manager>
     /// </summary>
     protected override void Init()
     {
-        _errorCount = 0;
+        _currentCar = null;
+        if (spriteCarLarge != null)
+            spriteCarLarge.alpha = 1f;
+
+        if (car1 != null)
+            car1.Reset();
+        if (car2 != null)
+            car2.Reset();
+        if (car3 != null)
+            car3.Reset();
     }
 
 	
@@ -70,9 +78,38 @@ public class MiniGame28_Manager : MiniGameSingleton<MiniGame28_Manager>
         Win();
     }
 
-    public void OtherButtonClick()
+    public void ClickButton1()
     {
-        _errorCount++;
+        StartMove(car1);
+    }
+
+    public void ClickButton2()
+    {
+        StartMove(car2);
+    }
+
+    public void ClickButton3()
+    {
+        StartMove(car3);
+    }
+
+    public void Finish()
+    {
+        Win();
+    }
+
+    private void StartMove(Car car)
+    {
+        if (!_isPlay || _currentCar != null)
+            return;
+
+        if (car != null)
+        {
+            _currentCar = car;
+            _currentCar.Move();
+            if (spriteCarLarge != null)
+                spriteCarLarge.alpha = 0f;
+        }
     }
 
     /// <summary>
@@ -100,6 +137,6 @@ public class MiniGame28_Manager : MiniGameSingleton<MiniGame28_Manager>
     {
         if (_time <= 0)
             return MiniGameResult.Bronze;
-        return (_errorCount <= 0) ? MiniGameResult.Gold : (_errorCount <= 1) ? MiniGameResult.Silver : MiniGameResult.Bronze;
+        return (_currentCar == car3) ? MiniGameResult.Gold : (_currentCar == car1) ? MiniGameResult.Silver : MiniGameResult.Bronze;
     }
 }

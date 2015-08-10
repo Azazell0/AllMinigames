@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-//using Minigame17;
+using Minigame17;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,13 +8,13 @@ public class MiniGame17_Manager : MiniGameSingleton<MiniGame17_Manager>
     #region variables
 
     /// <summary>
-    /// Контейнер, содержащий все карты
-    /// </summary>
-    public Transform CardContainer;
-    /// <summary>
     /// Лэйбл для отображения оставшегося времени
     /// </summary>
     public UILabel labelTime;
+    /// <summary>
+    /// Список всех плашек, которые нужно расставить игроку
+    /// </summary>
+    public List<Plate> listPlates;
 
     /// <summary>
     /// Время до окончания игры
@@ -31,8 +31,6 @@ public class MiniGame17_Manager : MiniGameSingleton<MiniGame17_Manager>
             _instance = this;
         else
             Destroy(this.gameObject);
-
-        Init();
     }
 
     /// <summary>
@@ -40,6 +38,10 @@ public class MiniGame17_Manager : MiniGameSingleton<MiniGame17_Manager>
     /// </summary>
     protected override void Init()
     {
+        if (listPlates == null)
+            listPlates = new List<Plate>();
+        foreach (Plate plate in listPlates)
+            plate.Reset();
     }
 	
     void Update ()
@@ -59,45 +61,11 @@ public class MiniGame17_Manager : MiniGameSingleton<MiniGame17_Manager>
     /// <param name="time">Время для прохождения</param>
     public void NewGame(float time)
     {
-        Init();
         Show();
-
-        if (CardContainer != null)
-        {
-            // Перемешивание карт
-            for (int i = 0; i < 2; i++)
-            {
-                Transform t1 = CardContainer.GetChild(UnityEngine.Random.Range(0, CardContainer.childCount));
-                Transform t2 = CardContainer.GetChild(UnityEngine.Random.Range(0, CardContainer.childCount));
-                if (t1 != t2)
-                {
-                    Vector3 v = t1.position;
-                    t1.position = t2.position;
-                    t2.position = v;
-                }
-            }
-        }
+        Init();
 
         _time = time;
         _isPlay = true;
-    }
-
-    /// <summary>
-    /// Проверка условий, необходимых для победы
-    /// </summary>
-    public void CheckWin()
-    {
-        if (!isPlay || CardContainer == null)
-            return;
-
-        foreach(Transform t in CardContainer)
-        {
-            //Card c = t.GetComponent<Card>();
-            //if (c != null && c.transform.position != c.startPosition)
-            //    return;
-        }
-
-        Win();
     }
 
     /// <summary>
@@ -115,13 +83,19 @@ public class MiniGame17_Manager : MiniGameSingleton<MiniGame17_Manager>
             if (_time <= 0)
             {
                 Debug.Log("Time is out!");
-                Losing();
+                Win();
             }
         }
     }
 
     protected override MiniGameResult GetResult()
     {
-        return (_time > 0) ? MiniGameResult.Gold : MiniGameResult.TimeOut;
+        int i = 0;
+        foreach (Plate p in listPlates)
+            if (p != null)
+                if (p.currentCell != p.correctCell)
+                    i++;
+
+        return (i <= 0) ? MiniGameResult.Gold : (i == 1) ? MiniGameResult.Silver : MiniGameResult.Bronze;
     }
 }
