@@ -10,7 +10,7 @@ namespace Minigame28
 
         public Transform containerPath;
 
-        private float _speed = 220;
+        private float _speed = 180;
         private UISprite _sprite;
         private bool _isMove = false;
         private List<Transform> listPath;
@@ -37,7 +37,7 @@ namespace Minigame28
             if (_targetPoint && _targetPoint.position != transform.position)
             {
                 // Расчет поворота
-                transform.right += Vector3.Lerp(transform.right, _targetPoint.transform.localPosition - transform.localPosition, 0.7f * Time.deltaTime);
+                transform.right -= Vector3.Lerp(transform.right, _targetPoint.transform.localPosition - transform.localPosition, 0.3f * Time.deltaTime);
 
                 // Расчет перемещения
                 float speedThisFrame = _speed * Time.deltaTime;
