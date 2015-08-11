@@ -42,7 +42,7 @@ public class PanelMenu : MonoBehaviour
 
     public void LoadMiniGame6()
     {
-        MiniGame6_Manager.instance.NewGame(30);
+        MiniGame6_Manager.instance.NewGame(60);
         Hide();
     }
 
