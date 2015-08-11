@@ -18,8 +18,8 @@ public class PanelMenu : MonoBehaviour
 
     public void LoadMiniGame2()
     {
-        //MiniGame2_Manager.instance.NewGame();
-        //Hide();
+        MiniGame2_Manager.instance.NewGame(30);
+        Hide();
     }
 
     public void LoadMiniGame3()
@@ -36,13 +36,13 @@ public class PanelMenu : MonoBehaviour
 
     public void LoadMiniGame5()
     {
-        //MiniGame5_Manager.instance.NewGame();
-        //Hide();
+        MiniGame5_Manager.instance.NewGame(30);
+        Hide();
     }
 
     public void LoadMiniGame6()
     {
-        MiniGame6_Manager.instance.NewGame(60);
+        MiniGame6_Manager.instance.NewGame(30);
         Hide();
     }
 
@@ -132,8 +132,8 @@ public class PanelMenu : MonoBehaviour
 
     public void LoadMiniGame21()
     {
-        //MiniGame21_Manager.instance.NewGame();
-        //Hide();
+        MiniGame21_Manager.instance.NewGame(30);
+        Hide();
     }
 
     public void LoadMiniGame22()

@@ -63,12 +63,6 @@
     <Reference Include="UnityEngine.Analytics">
       <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
@@ -219,8 +213,13 @@
     <Compile Include="Assets\Scripts\Minigame 18\MiniGame18_Manager.cs" />
     <Compile Include="Assets\Scripts\Minigame 19\Instrument.cs" />
     <Compile Include="Assets\Scripts\Minigame 19\MiniGame19_Manager.cs" />
+    <Compile Include="Assets\Scripts\Minigame 2\House.cs" />
+    <Compile Include="Assets\Scripts\Minigame 2\MiniGame2_Manager.cs" />
     <Compile Include="Assets\Scripts\Minigame 20\CameraPoint.cs" />
     <Compile Include="Assets\Scripts\Minigame 20\MiniGame20_Manager.cs" />
+    <Compile Include="Assets\Scripts\Minigame 21\Counter.cs" />
+    <Compile Include="Assets\Scripts\Minigame 21\MiniGame21_Manager.cs" />
+    <Compile Include="Assets\Scripts\Minigame 21\Modem.cs" />
     <Compile Include="Assets\Scripts\Minigame 23\MiniGame23_Manager.cs" />
     <Compile Include="Assets\Scripts\Minigame 23\Point.cs" />
     <Compile Include="Assets\Scripts\Minigame 23\Pugalka.cs" />
@@ -256,6 +255,8 @@
     <Compile Include="Assets\Scripts\Minigame 4\Icon.cs" />
     <Compile Include="Assets\Scripts\Minigame 4\IconShadow.cs" />
     <Compile Include="Assets\Scripts\Minigame 4\MiniGame4_Manager.cs" />
+    <Compile Include="Assets\Scripts\Minigame 5\ButtonToggle.cs" />
+    <Compile Include="Assets\Scripts\Minigame 5\MiniGame5_Manager.cs" />
     <Compile Include="Assets\Scripts\Minigame 6\Card.cs" />
     <Compile Include="Assets\Scripts\Minigame 6\MiniGame6_Manager.cs" />
     <Compile Include="Assets\Scripts\Minigame 8\BuildObject.cs" />
