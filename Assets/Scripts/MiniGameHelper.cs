@@ -213,4 +213,81 @@ public static class MiniGameHelper
 
         return false;
     }
+
+    public static void SetSpriteAlpha(UISprite sprite, float alpha)
+    {
+        if (sprite != null)
+            sprite.alpha = alpha;
+    }
+
+    public static void SetSpriteAlpha(float alpha, params UISprite[] sprite)
+    {
+        if (sprite == null || sprite.Length == 0)
+            return;
+        for (int i = 0; i < sprite.Length; i++)
+            if (sprite[i] != null)
+                sprite[i].alpha = alpha;
+    }
+
+    public static IEnumerator SetSpriteVisible(UISprite sprite, float speed, float delay = 0.03f)
+    {
+        if (sprite != null)
+        {
+            speed = Mathf.Clamp(speed, 0, 1);
+            while (sprite.alpha < 1f)
+            {
+                sprite.alpha += speed;
+                yield return new WaitForSeconds(delay);
+            }
+        }
+    }
+
+    public static IEnumerator SetSpriteUnvisible(UISprite sprite, float speed, float delay = 0.03f)
+    {
+        if (sprite != null)
+        {
+            speed = Mathf.Clamp(speed, 0, 1);
+            while (sprite.alpha > 0f)
+            {
+                sprite.alpha -= speed;
+                yield return new WaitForSeconds(delay);
+            }
+        }
+    }
+
+    public static void UILabelReset(string initText, params UILabel[] label)
+    {
+        if (label == null || label.Length == 0)
+            return;
+        for (int i = 0; i < label.Length; i++)
+            if (label[i] != null)
+                label[i].text = initText;
+    }
+
+    public static void UIInputReset(string initText, params UIInput[] input)
+    {
+        if (input == null || input.Length == 0)
+            return;
+        for (int i = 0; i < input.Length; i++)
+            if (input[i] != null)
+                input[i].value = initText;
+    }
+
+    /// <summary>
+    /// Устанавливает параметр Interactable для всех InputFields
+    /// </summary>
+    /// <param name="b"></param>
+    /// <param name="deleteText">true - удалить текст из Input.value</param>
+    public static void UIInputSetInteractable(bool b, bool deleteText, params UIInput[] input)
+    {
+        if (input == null || input.Length == 0)
+            return;
+        for (int i = 0; i < input.Length; i++)
+            if (input[i] != null)
+            {
+                if (deleteText)
+                    input[i].value = "";
+                input[i].enabled = b;
+            }
+    }
 }

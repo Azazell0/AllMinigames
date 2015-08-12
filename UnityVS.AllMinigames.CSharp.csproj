@@ -63,12 +63,6 @@
     <Reference Include="UnityEngine.Analytics">
       <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
@@ -208,6 +202,7 @@
     <Compile Include="Assets\Scripts\Minigame 10\MiniGame10_Manager.cs" />
     <Compile Include="Assets\Scripts\Minigame 11\BlankError.cs" />
     <Compile Include="Assets\Scripts\Minigame 11\MiniGame11_Manager.cs" />
+    <Compile Include="Assets\Scripts\Minigame 12\MiniGame12_Manager.cs" />
     <Compile Include="Assets\Scripts\Minigame 13\MiniGame13_Manager.cs" />
     <Compile Include="Assets\Scripts\Minigame 14\MiniGame14_Manager.cs" />
     <Compile Include="Assets\Scripts\Minigame 15\MiniGame15_Manager.cs" />
@@ -226,6 +221,9 @@
     <Compile Include="Assets\Scripts\Minigame 21\Counter.cs" />
     <Compile Include="Assets\Scripts\Minigame 21\MiniGame21_Manager.cs" />
     <Compile Include="Assets\Scripts\Minigame 21\Modem.cs" />
+    <Compile Include="Assets\Scripts\Minigame 22\MiniGame22_Manager.cs" />
+    <Compile Include="Assets\Scripts\Minigame 22\NoiseSensor.cs" />
+    <Compile Include="Assets\Scripts\Minigame 22\NoiseSource.cs" />
     <Compile Include="Assets\Scripts\Minigame 23\MiniGame23_Manager.cs" />
     <Compile Include="Assets\Scripts\Minigame 23\Point.cs" />
     <Compile Include="Assets\Scripts\Minigame 23\Pugalka.cs" />
