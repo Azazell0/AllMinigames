@@ -186,6 +186,20 @@ public static class MiniGameHelper
             transform2.transform.position = v;
         }
     }
+
+    /// <summary>
+    /// Рекурсивно устанавливает слой для объекта и всех его дочерних объектов
+    /// </summary>
+    /// <param name="tr">Указатель на объект</param>
+    /// <param name="layer">Слой</param>
+    public static void SetLayerRecursieve(Transform tr, int layer)
+    {
+        if (tr == null)
+            return;
+        tr.gameObject.layer = layer;
+        foreach (Transform t in tr)
+            SetLayerRecursieve(t, layer);
+    }
         
 
     public static bool ArrayContains<T>(T[] array, T value)

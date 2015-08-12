@@ -114,13 +114,4 @@ public abstract class MiniGameSingleton<T> : MonoBehaviour where T : MonoBehavio
         if (LosingEvent != null)
             LosingEvent();
     }
-
-    public static void SetLayerRecursieve(Transform tr, int layer)
-    {
-        if (tr == null)
-            return;
-        tr.gameObject.layer = layer;
-        foreach(Transform t in tr)
-            SetLayerRecursieve(t, layer);
-    }
 }

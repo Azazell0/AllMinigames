@@ -77,9 +77,7 @@ public class MiniGame25_Manager : MiniGameSingleton<MiniGame25_Manager>
         else
             Destroy(this.gameObject);
         if (defaultLayerObject != null)
-            SetLayerRecursieve(defaultLayerObject.transform, LayerMask.NameToLayer("Default"));
-
-        Init();
+            MiniGameHelper.SetLayerRecursieve(defaultLayerObject.transform, LayerMask.NameToLayer("Default"));
     }
 
     /// <summary>
@@ -100,10 +98,7 @@ public class MiniGame25_Manager : MiniGameSingleton<MiniGame25_Manager>
             listHomeCells = new List<Cell>();
         _m500Count = 0;
         _m900Count = 0;
-    }
-    
-    void Start ()
-    {
+        UpdateWiFiLabels();
     }
 	
     void Update ()
@@ -232,7 +227,6 @@ public class MiniGame25_Manager : MiniGameSingleton<MiniGame25_Manager>
                     list.RemoveAt(i);
         }
 
-        Debug.Log(list.Count);
         if (list.Count == 0)
             Win();
     }
