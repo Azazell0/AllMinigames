@@ -56,7 +56,7 @@ public class MiniGame10_Manager : MiniGameSingleton<MiniGame10_Manager>
         else
             Destroy(this.gameObject);
             if (defaultLayerObject != null)
-                SetLayerRecursieve(defaultLayerObject.transform, LayerMask.NameToLayer("Default"));
+                MiniGameHelper.SetLayerRecursieve(defaultLayerObject.transform, LayerMask.NameToLayer("Default"));
 
         Init();
     }

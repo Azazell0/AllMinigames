@@ -71,7 +71,11 @@ public class MiniGame23_Manager : MiniGameSingleton<MiniGame23_Manager>
         else
         {
             foreach (Pugalka p in _listPugalka)
+            {
+                if (p.currentPoint != null)
+                    p.currentPoint.isPugalka = false;
                 Destroy(p.gameObject);
+            }
             _listPugalka.Clear();
         }
 
@@ -109,29 +113,38 @@ public class MiniGame23_Manager : MiniGameSingleton<MiniGame23_Manager>
         if (!isPlay || !_pugalkaButtonClick || currentPugalka != null || _pugalkaCount >= maxPugalkaCount)
             return null;
 
-        GameObject go = Instantiate(Resources.Load(pathPugalka)) as GameObject;
-        if (go != null)
+        Pugalka p = MiniGameHelper.InstanceObject<Pugalka>(pathPugalka, containerPugalka);
+        if (p != null)
         {
-            Pugalka p = go.GetComponent<Pugalka>();
-            if (p != null)
-            {
-                if (containerPugalka != null)
-                {
-                    Vector3 scale = go.transform.localScale;
-                    Vector3 position = go.transform.localPosition;
-                    go.transform.parent = containerPugalka;
-                    go.transform.localPosition = position;
-                    go.transform.localScale = scale;
-                }
-
-                _pugalkaCount++;
-                UpdateCountLabel();
-                _currentPugalka = p;
-                p.SetTransparency(true);
-                return p;
-            }
+            _listPugalka.Add(p);
+            _pugalkaCount++;
+            _currentPugalka = p;
+            p.SetTransparency(true);
+            UpdateCountLabel();
         }
-        return null;
+        //GameObject go = Instantiate(Resources.Load(pathPugalka)) as GameObject;
+        //if (go != null)
+        //{
+        //    Pugalka p = go.GetComponent<Pugalka>();
+        //    if (p != null)
+        //    {
+        //        if (containerPugalka != null)
+        //        {
+        //            Vector3 scale = go.transform.localScale;
+        //            Vector3 position = go.transform.localPosition;
+        //            go.transform.parent = containerPugalka;
+        //            go.transform.localPosition = position;
+        //            go.transform.localScale = scale;
+        //        }
+
+        //        _pugalkaCount++;
+        //        UpdateCountLabel();
+        //        _currentPugalka = p;
+        //        p.SetTransparency(true);
+        //        return p;
+        //    }
+        //}
+        return p;
     }
 
     /// <summary>

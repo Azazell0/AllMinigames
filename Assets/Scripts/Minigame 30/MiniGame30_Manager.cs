@@ -106,8 +106,6 @@ public class MiniGame30_Manager : MiniGameSingleton<MiniGame30_Manager>
             _instance = this;
         else
             Destroy(this.gameObject);
-
-        Init();
     }
 
     void Update()
@@ -143,11 +141,11 @@ public class MiniGame30_Manager : MiniGameSingleton<MiniGame30_Manager>
 
         UpdateCountLabel();
 
-        // Переносим все машины, оставшиеся с прошлой игры в список неактивных
         if (_listDeactiveCars == null)
             _listDeactiveCars = new List<Car>();
         if (_listCars == null)
             _listCars = new List<Car>();
+        // Переносим все машины, оставшиеся с прошлой игры в список неактивных
         else foreach(Car c in _listCars)
             if (c != null)
             {
@@ -158,16 +156,8 @@ public class MiniGame30_Manager : MiniGameSingleton<MiniGame30_Manager>
 
         // Заносим все гаражные клетки в список и скрываем их
         if (_listGarageCells == null)
-        {
-            _listGarageCells = new List<GarageCell>();
-            if (containerGarageCells != null)
-                foreach(Transform t in containerGarageCells)
-                {
-                    GarageCell gc = t.GetComponent<GarageCell>();
-                    if (gc = null)
-                        _listGarageCells.Add(gc);
-                }
-        }
+            MiniGameHelper.FindChildObjects<GarageCell>(containerGarageCells, ref _listGarageCells);
+        
         foreach (GarageCell cell in _listGarageCells)
             if (cell != null && cell.garage != null)
                 cell.garage.Hide();

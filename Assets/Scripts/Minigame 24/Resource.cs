@@ -30,6 +30,11 @@ namespace Minigame24
             MiniGame24_Manager.instance.SetCurrentResourceType(type);
         }
 
+        public void Drag()
+        {
+
+        }
+
         public void Rotate()
         {
             if (type == ResourceType.TubeLine || type == ResourceType.TubeAngle)

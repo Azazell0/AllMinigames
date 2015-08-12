@@ -85,6 +85,10 @@ public class MiniGame17_Manager : MiniGameSingleton<MiniGame17_Manager>
                 Debug.Log("Time is out!");
                 Win();
             }
+            if (GetResult() == MiniGameResult.Gold)
+            {
+                Win();
+            }
         }
     }
 

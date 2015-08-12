@@ -945,11 +945,6 @@ The message ID determines the handler that will be called on the server for this
         <para>Flag that tells if the connection has been marked as "ready" by a client calling NetworkClient.Ready().</para>
       </summary>
     </member>
-    <member name="F:UnityEngine.Networking.NetworkConnection.lastMessageTime">
-      <summary>
-        <para>The last time that a message was received on this connection.</para>
-      </summary>
-    </member>
     <member name="P:UnityEngine.Networking.NetworkConnection.playerControllers">
       <summary>
         <para>The list of players for this connection.</para>
