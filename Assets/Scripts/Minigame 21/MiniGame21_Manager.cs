@@ -20,10 +20,6 @@ public class MiniGame21_Manager : MiniGameSingleton<MiniGame21_Manager>
     /// </summary>
     public List<Modem> listModems;
 
-    /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
     private Counter _currentCounter;
     private int _counrErrors = 0;
     private List<Counter> _listCounters;
@@ -77,19 +73,6 @@ public class MiniGame21_Manager : MiniGameSingleton<MiniGame21_Manager>
         else foreach (Modem m in listModems)
                 if (m != null)
                     m.Reset();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     public void ClickModem(Modem modem)

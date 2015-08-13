@@ -33,10 +33,6 @@ public class MiniGame23_Manager : MiniGameSingleton<MiniGame23_Manager>
 
     private const string pathPugalka = "Prefabs/Minigame 23/Pugalka";
 
-    /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
     private Pugalka _currentPugalka;
     private List<Pugalka> _listPugalka;
     private bool _pugalkaButtonClick = false;
@@ -241,19 +237,6 @@ public class MiniGame23_Manager : MiniGameSingleton<MiniGame23_Manager>
             return;
 
         Losing();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     public void UpdateCountLabel()

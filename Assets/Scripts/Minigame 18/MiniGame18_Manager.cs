@@ -17,10 +17,6 @@ public class MiniGame18_Manager : MiniGameSingleton<MiniGame18_Manager>
     public UILabel labelCount;
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Список со всеми ошибками
     /// </summary>
     private List<BlankError> _listBlankError;
@@ -64,19 +60,6 @@ public class MiniGame18_Manager : MiniGameSingleton<MiniGame18_Manager>
 	public void CloseMenu()
     {
         Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     /// <summary>
@@ -164,8 +147,7 @@ public class MiniGame18_Manager : MiniGameSingleton<MiniGame18_Manager>
             return MiniGameResult.Gold;
         else if (i >= 8)
             return MiniGameResult.Silver;
-        else if (i >= 3)
+        else
             return MiniGameResult.Bronze;
-        else return MiniGameResult.TimeOut;
     }
 }

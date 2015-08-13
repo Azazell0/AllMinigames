@@ -36,10 +36,6 @@ public class MiniGame27_Manager : MiniGameSingleton<MiniGame27_Manager>
     private const string pathShadowPrefab = "Prefabs/Minigame 27/Shadow";
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// true - если хотя бы одна тень активна
     /// </summary>
     private bool _shadowBlock = false;
@@ -145,13 +141,9 @@ public class MiniGame27_Manager : MiniGameSingleton<MiniGame27_Manager>
     /// Инициализация новой игры
     /// </summary>
     /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
+    public override void NewGame(float time)
     {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
+        base.NewGame(time);
 
         // При старте игры запускаем тени ко всем клеткам
         foreach (Cell c in _listCell)
@@ -413,11 +405,9 @@ public class MiniGame27_Manager : MiniGameSingleton<MiniGame27_Manager>
     {
         if (_points > 16)
             return MiniGameResult.Gold;
-        if (_points > 12)
+        else if (_points > 12)
             return MiniGameResult.Silver;
-        if (_points > 5)
+        else
             return MiniGameResult.Bronze;
-        return MiniGameResult.TimeOut;
-
     }
 }

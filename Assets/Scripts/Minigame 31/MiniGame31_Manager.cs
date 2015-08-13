@@ -31,10 +31,6 @@ public class MiniGame31_Manager : MiniGameSingleton<MiniGame31_Manager>
     private const string pathTrashPrefab = "Prefabs/Minigame 31/Trash";
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Прошедшее время с последнего инстанцирования мусора
     /// </summary>
     private float _timeLastInstance = 0f;
@@ -125,19 +121,6 @@ public class MiniGame31_Manager : MiniGameSingleton<MiniGame31_Manager>
 	public void CloseMenu()
     {
         Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     /// <summary>

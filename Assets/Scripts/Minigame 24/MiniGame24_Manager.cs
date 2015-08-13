@@ -41,10 +41,6 @@ public class MiniGame24_Manager : MiniGameSingleton<MiniGame24_Manager>
     private const string pathValve = "Prefabs/Minigame 24/Valve";
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Ресурс, который сейчас используется
     /// </summary>
     private Resource _currentResource;
@@ -107,19 +103,6 @@ public class MiniGame24_Manager : MiniGameSingleton<MiniGame24_Manager>
     public void CloseMenu()
     {
         Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     public void SetCurrentResource(Resource resource)
@@ -362,7 +345,7 @@ public class MiniGame24_Manager : MiniGameSingleton<MiniGame24_Manager>
     protected override MiniGameResult GetResult()
     {
         if (_time <= 0)
-            return MiniGameResult.TimeOut;
+            return MiniGameResult.Bronze;
 
         if (Field == null)
         {

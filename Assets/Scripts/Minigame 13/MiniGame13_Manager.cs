@@ -28,35 +28,6 @@ public class MiniGame13_Manager : MiniGameSingleton<MiniGame13_Manager>
     /// </summary>
     protected override void Init()
     {
-        
-    }
-
-    protected override MiniGameResult GetResult()
-    {
-        return MiniGameResult.Gold;
-    }
-    
-    void Start ()
-    {
-	}
-	
-	void FixedUpdate ()
-    {
-        if (_isPlay)
-            if (CheckWin())
-                Win();
-	}
-
-    public void CloseMenu()
-    {
-        Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    public void NewGame()
-    {
         if (textWaterCold1 != null)
             textWaterCold1.text = Random.Range(0, 10000).ToString("0000") + ".";
         if (textWaterCold2 != null)
@@ -71,10 +42,23 @@ public class MiniGame13_Manager : MiniGameSingleton<MiniGame13_Manager>
             textElectric2.text = Random.Range(0, 100).ToString("00");
 
         SetInteractable(true, true);
+    }
 
-        _isPlay = true;
+    protected override MiniGameResult GetResult()
+    {
+        return MiniGameResult.Gold;
+    }
+	
+	void FixedUpdate ()
+    {
+        if (_isPlay)
+            if (CheckWin())
+                Win();
+	}
 
-        Show();
+    public void CloseMenu()
+    {
+        Hide();
     }
 
     /// <summary>

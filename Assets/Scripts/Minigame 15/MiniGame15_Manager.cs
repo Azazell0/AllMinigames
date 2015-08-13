@@ -21,10 +21,6 @@ public class MiniGame15_Manager : MiniGameSingleton<MiniGame15_Manager>
     public Transform containerObjects;
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Список  объектов в игре
     /// </summary>
     private List<SceneObject> listObjects;
@@ -80,19 +76,6 @@ public class MiniGame15_Manager : MiniGameSingleton<MiniGame15_Manager>
                     so.Reset();
 
         UpdateCountLabel();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     /// <summary>

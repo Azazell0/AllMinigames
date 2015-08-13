@@ -41,10 +41,6 @@ public class MiniGame8_Manager : MiniGameSingleton<MiniGame8_Manager>
     /// При старте игры является копией _buildObjectsList
     /// </summary>
     private List<BuildObject> _buildObjectsCopyList;
-    /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
 
     #endregion
 
@@ -86,19 +82,6 @@ public class MiniGame8_Manager : MiniGameSingleton<MiniGame8_Manager>
     public void CloseMenu()
     {
         Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     /// <summary>

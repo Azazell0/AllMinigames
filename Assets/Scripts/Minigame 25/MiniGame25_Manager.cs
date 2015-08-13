@@ -52,10 +52,6 @@ public class MiniGame25_Manager : MiniGameSingleton<MiniGame25_Manager>
     public const string pathWiFi900Prefab = "Prefabs/25_WiFi900";
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Текущее количество станций m500
     /// </summary>
     private int _m500Count = 0;
@@ -112,18 +108,6 @@ public class MiniGame25_Manager : MiniGameSingleton<MiniGame25_Manager>
         Hide();
     }
 
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
-    }
 
     /// <summary>
     /// Устанавливает режим размещения WiFi станций 900 метров
@@ -265,7 +249,7 @@ public class MiniGame25_Manager : MiniGameSingleton<MiniGame25_Manager>
     protected override MiniGameResult GetResult()
     {
         if (_time <= 0)
-            return MiniGameResult.TimeOut;
+            return MiniGameResult.Bronze;
         else
             return MiniGameResult.Gold;
     }

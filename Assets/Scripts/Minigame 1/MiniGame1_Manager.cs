@@ -67,10 +67,6 @@ public class MiniGame1_Manager : MiniGameSingleton<MiniGame1_Manager>
     public int errorCount { get { return _errorCount; } }
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Количество совершенных ошибок в текущей игре
     /// </summary>
     private int _errorCount = 0;
@@ -119,21 +115,6 @@ public class MiniGame1_Manager : MiniGameSingleton<MiniGame1_Manager>
             _currentResource.HideShadow();
         _currentResource = null;
         _errorCount = 0;
-    }
-	
-	public void CloseMenu()
-    {
-        Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
 
         MiniGameHelper.ActiveRandomChilds(BreakingsRoofContainer.transform, 1, true);
         MiniGameHelper.ActiveRandomChilds(BreakingsWindowContainer.transform, 1, true);
@@ -141,9 +122,11 @@ public class MiniGame1_Manager : MiniGameSingleton<MiniGame1_Manager>
         MiniGameHelper.ActiveRandomChilds(BreakingsWallCrashContainer.transform, 1, true);
         MiniGameHelper.ActiveRandomChilds(BreakingsWallDirtContainer.transform, 1, true);
         _activeBreakingCount = 5;
-
-        _time = time;
-        _isPlay = true;
+    }
+	
+	public void CloseMenu()
+    {
+        Hide();
     }
 
     /// <summary>
@@ -261,7 +244,7 @@ public class MiniGame1_Manager : MiniGameSingleton<MiniGame1_Manager>
     protected override MiniGameResult GetResult()
     {
         if (_time <= 0)
-            return MiniGameResult.TimeOut;
+            return MiniGameResult.Bronze;
         else switch (_errorCount)
             {
                 case 0:

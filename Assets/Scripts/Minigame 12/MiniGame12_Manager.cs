@@ -15,10 +15,6 @@ public class MiniGame12_Manager : MiniGameSingleton<MiniGame12_Manager>
     public UIInput inputCounter1, inputCounter2, inputCounter3, inputCounter4;
     public UISprite spriteRaznica, spriteResult;
 
-    /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
     private float _timeLastLabelsUpdate = 0f;
     private bool _isCoroutine = false;
     private const int sumCounter1 = 8080;
@@ -65,19 +61,6 @@ public class MiniGame12_Manager : MiniGameSingleton<MiniGame12_Manager>
     {
         if (!_isCoroutine)
             Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     public void Input1Submit()

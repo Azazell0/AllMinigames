@@ -16,11 +16,6 @@ public class MiniGame17_Manager : MiniGameSingleton<MiniGame17_Manager>
     /// </summary>
     public List<Plate> listPlates;
 
-    /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-
     #endregion
 
 
@@ -53,19 +48,6 @@ public class MiniGame17_Manager : MiniGameSingleton<MiniGame17_Manager>
     public void CloseMenu()
     {
         Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Show();
-        Init();
-
-        _time = time;
-        _isPlay = true;
     }
 
     /// <summary>

@@ -37,10 +37,6 @@ public class MiniGame3_Manager : MiniGameSingleton<MiniGame3_Manager>
     public GameObject blockObject;
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Общий вес выбранных персонажей
     /// </summary>
     private int _weight = 0;
@@ -98,19 +94,6 @@ public class MiniGame3_Manager : MiniGameSingleton<MiniGame3_Manager>
         else foreach (Person p in _listPersons)
                 if (p != null)
                     p.Reset();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     /// <summary>
@@ -215,7 +198,7 @@ public class MiniGame3_Manager : MiniGameSingleton<MiniGame3_Manager>
     protected override MiniGameResult GetResult()
     {
         if (_time <= 0)
-            return MiniGameResult.TimeOut;
+            return MiniGameResult.Bronze;
         switch(_countElevatorStat)
         {
             case 1:

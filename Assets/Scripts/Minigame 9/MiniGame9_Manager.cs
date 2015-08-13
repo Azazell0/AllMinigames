@@ -20,10 +20,6 @@ public class MiniGame9_Manager : MiniGameSingleton<MiniGame9_Manager>
     public List<Person> listPersons;
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Текущий персонаж, которого выбрал игрок
     /// </summary>
     private Person _currentPerson;
@@ -131,20 +127,6 @@ public class MiniGame9_Manager : MiniGameSingleton<MiniGame9_Manager>
     }
 
     /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-
-        _time = time;
-        _isPlay = true;
-
-        Show();
-    }
-
-    /// <summary>
     /// Попытка выбора персонажа
     /// </summary>
     /// <param name="person">Указатель на персонажа</param>
@@ -199,8 +181,6 @@ public class MiniGame9_Manager : MiniGameSingleton<MiniGame9_Manager>
             case 7:
             case 6:
                 return MiniGameResult.Silver;
-            case 0:
-                return MiniGameResult.TimeOut;
             default:
                 return MiniGameResult.Bronze;
         }
@@ -222,10 +202,8 @@ public class MiniGame9_Manager : MiniGameSingleton<MiniGame9_Manager>
     {
         if (protocol != null)
             protocol.SetActive(true);
-        if (resultsMenu != null)
-            resultsMenu.ShowResults(GetResult());
         yield return new WaitForSeconds(4f);
         if (resultsMenu != null)
-            resultsMenu.Hide();
+            resultsMenu.ShowResults(GetResult(), this, _timeToGame, _minigameName, _minigameDescription);
     }
 }

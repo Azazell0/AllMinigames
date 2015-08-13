@@ -25,10 +25,6 @@ public class MiniGame20_Manager : MiniGameSingleton<MiniGame20_Manager>
     public Transform rootCameras;
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Текущее количество найденных камер
     /// </summary>
     private int _cameraCount = 0;
@@ -52,10 +48,15 @@ public class MiniGame20_Manager : MiniGameSingleton<MiniGame20_Manager>
     /// </summary>
     protected override void Init()
     {
-    }
-    
-    void Start ()
-    {
+        _cameraCount = 0;
+        if (rootCameras != null)
+            foreach (Transform t in rootCameras)
+            {
+                CameraPoint c = t.GetComponent<CameraPoint>();
+                if (c != null)
+                    c.Reset();
+            }
+        UpdateLabelCount();
     }
 	
     void Update ()
@@ -70,29 +71,6 @@ public class MiniGame20_Manager : MiniGameSingleton<MiniGame20_Manager>
     }
 
     /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        _cameraCount = 0;
-        if (rootCameras != null)
-            foreach (Transform t in rootCameras)
-            {
-                CameraPoint c = t.GetComponent<CameraPoint>();
-                if (c != null)
-                    c.Reset();
-            }
-        if (labelCount != null)
-            labelCount.text = _cameraCount.ToString() + "/" + camerasCount.ToString();
-
-        Show();
-
-        _time = time;
-        _isPlay = true;
-    }
-
-    /// <summary>
     /// Была найдена камера
     /// </summary>
     public void WasFindCamera()
@@ -101,9 +79,14 @@ public class MiniGame20_Manager : MiniGameSingleton<MiniGame20_Manager>
             return;
 
         _cameraCount++;
+        UpdateLabelCount();
+        CheckWin();
+    }
+
+    public void UpdateLabelCount()
+    {
         if (labelCount != null)
             labelCount.text = _cameraCount.ToString() + "/" + camerasCount.ToString();
-        CheckWin();
     }
 
     /// <summary>
@@ -142,7 +125,7 @@ public class MiniGame20_Manager : MiniGameSingleton<MiniGame20_Manager>
     protected override MiniGameResult GetResult()
     {
         if (_time <= 0 && ((camerasCount - _cameraCount) >= 5))
-            return MiniGameResult.TimeOut;
+            return MiniGameResult.Bronze;
         else
             switch (camerasCount - _cameraCount)
             {

@@ -56,10 +56,6 @@ public class MiniGame30_Manager : MiniGameSingleton<MiniGame30_Manager>
     private const string pathCar = "Prefabs/Minigame 30/Car";
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Время до появления следующей машины
     /// </summary>
     private float _timeToNextCarInstant = 3f;
@@ -170,19 +166,6 @@ public class MiniGame30_Manager : MiniGameSingleton<MiniGame30_Manager>
                 foreach (Transform t in containerCarStartPositions)
                     _listStartPositions.Add(t.localPosition);
         }
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     #region Buttons Events

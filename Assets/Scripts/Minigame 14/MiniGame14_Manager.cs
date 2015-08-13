@@ -8,11 +8,6 @@ public class MiniGame14_Manager : MiniGameSingleton<MiniGame14_Manager>
 
     public Animator anim;
 
-    /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-
     #endregion
 
 
@@ -59,19 +54,6 @@ public class MiniGame14_Manager : MiniGameSingleton<MiniGame14_Manager>
     }
 
     /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
-    }
-
-    /// <summary>
     /// Проверка условий, необходимых для победы
     /// </summary>
     /// <returns>true - игрок выиграл</returns>
@@ -98,6 +80,6 @@ public class MiniGame14_Manager : MiniGameSingleton<MiniGame14_Manager>
 
     protected override MiniGameResult GetResult()
     {
-        return MiniGameResult.TimeOut;
+        return MiniGameResult.Bronze;
     }
 }

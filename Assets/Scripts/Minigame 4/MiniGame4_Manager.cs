@@ -17,10 +17,6 @@ public class MiniGame4_Manager : MiniGameSingleton<MiniGame4_Manager>
     public Transform containerIcons;
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Список всех иконок
     /// </summary>
     private List<Icon> listIcons;
@@ -51,6 +47,10 @@ public class MiniGame4_Manager : MiniGameSingleton<MiniGame4_Manager>
             _instance = this;
         else
             Destroy(this.gameObject);
+
+        _timeToGame = 0f;
+        _minigameName = "";
+        _minigameDescription = "";
     }
 
     void Update()
@@ -84,19 +84,6 @@ public class MiniGame4_Manager : MiniGameSingleton<MiniGame4_Manager>
             if (shadow != null)
                 shadow.Reset();
         MiniGameHelper.ListRandomSortTransformPositions<IconShadow>(ref listIconsShadow, 10);
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     public void ClickToggleIcon(Icon icon)

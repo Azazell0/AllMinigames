@@ -22,10 +22,6 @@ public class MiniGame6_Manager : MiniGameSingleton<MiniGame6_Manager>
     public UILabel labelTime;
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Карта, которая сейчас используется
     /// </summary>
     private Card _currentCard;
@@ -49,28 +45,6 @@ public class MiniGame6_Manager : MiniGameSingleton<MiniGame6_Manager>
     /// </summary>
     protected override void Init()
     {
-    }
-	
-    void Update ()
-    {
-        if (_isPlay)
-            CheckTime();
-    }
-
-    public void CloseMenu()
-    {
-        Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
         if (CardContainer != null)
         {
             // Перемешивание карт
@@ -86,9 +60,17 @@ public class MiniGame6_Manager : MiniGameSingleton<MiniGame6_Manager>
                 }
             }
         }
+    }
+	
+    void Update ()
+    {
+        if (_isPlay)
+            CheckTime();
+    }
 
-        _time = time;
-        _isPlay = true;
+    public void CloseMenu()
+    {
+        Hide();
     }
 
     /// <summary>
@@ -143,6 +125,6 @@ public class MiniGame6_Manager : MiniGameSingleton<MiniGame6_Manager>
 
     protected override MiniGameResult GetResult()
     {
-        return (_time > 0) ? MiniGameResult.Gold : MiniGameResult.TimeOut;
+        return (_time > 0) ? MiniGameResult.Gold : MiniGameResult.Bronze;
     }
 }

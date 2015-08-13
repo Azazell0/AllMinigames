@@ -50,9 +50,30 @@ public abstract class MiniGameSingleton<T> : MonoBehaviour where T : MonoBehavio
     /// true - идет игра, false - пауза
     /// </summary>
     protected bool _isPlay = false;
+    /// <summary>
+    /// Время до окончания игры
+    /// </summary>
+    protected float _time = 0f;
+    protected float _timeToGame = 0f;
+    protected string _minigameName = "";
+    protected string _minigameDescription = "";
 
     #endregion
 
+
+    /// <summary>
+    /// Инициализация новой игры
+    /// </summary>
+    /// <param name="time">Время для прохождения</param>
+    public virtual void NewGame(float time)
+    {
+        _timeToGame = time;
+        Init();
+        Show();
+
+        _time = time;
+        _isPlay = true;
+    }
 
     /// <summary>
     /// Инициализация
@@ -68,7 +89,7 @@ public abstract class MiniGameSingleton<T> : MonoBehaviour where T : MonoBehavio
     /// <summary>
     /// Скрыть меню
     /// </summary>
-    protected virtual void Hide()
+    public virtual void Hide()
     {
         _isPlay = false;
         if (body != null)
@@ -83,7 +104,7 @@ public abstract class MiniGameSingleton<T> : MonoBehaviour where T : MonoBehavio
     /// <summary>
     /// Показать меню
     /// </summary>
-    protected virtual void Show()
+    public virtual void Show()
     {
         if (body != null)
             body.SetActive(true);
@@ -97,7 +118,7 @@ public abstract class MiniGameSingleton<T> : MonoBehaviour where T : MonoBehavio
         _isPlay = false;
         Debug.Log("WIN!");
         if (resultsMenu != null)
-            resultsMenu.ShowResults(GetResult());
+            resultsMenu.ShowResults(GetResult(), this, _timeToGame, _minigameName, _minigameDescription);
         if (WinEvent != null)
             WinEvent();
     }
@@ -110,7 +131,7 @@ public abstract class MiniGameSingleton<T> : MonoBehaviour where T : MonoBehavio
         _isPlay = false;
         Debug.Log("LOSING");
         if (resultsMenu != null)
-            resultsMenu.ShowResults(GetResult());
+            resultsMenu.ShowResults(GetResult(), this, _timeToGame, _minigameName, _minigameDescription);
         if (LosingEvent != null)
             LosingEvent();
     }

@@ -13,10 +13,6 @@ public class MiniGame5_Manager : MiniGameSingleton<MiniGame5_Manager>
     public UILabel labelTime;
     public List<ButtonToggle> listButtons;
 
-    /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
     private int _errorCount = 0;
     private bool _isCoroutine = false;
     private ButtonToggle _currentButton; 
@@ -62,19 +58,6 @@ public class MiniGame5_Manager : MiniGameSingleton<MiniGame5_Manager>
 
         if (listButtons.Count > 0)
             _currentButton = listButtons[0];
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     public void ClickButtonToggle(ButtonToggle bt)

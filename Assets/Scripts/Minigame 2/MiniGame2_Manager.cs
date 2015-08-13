@@ -14,10 +14,6 @@ public class MiniGame2_Manager : MiniGameSingleton<MiniGame2_Manager>
     public List<House> listHouses;
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// true - в данный момент работает корутина
     /// </summary>
     private bool _isCoroutineWork = false;
@@ -69,19 +65,6 @@ public class MiniGame2_Manager : MiniGameSingleton<MiniGame2_Manager>
                 else
                     h.Hide();
             }
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     public void ClickButton1()

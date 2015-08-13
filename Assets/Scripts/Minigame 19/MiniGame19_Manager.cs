@@ -23,10 +23,6 @@ public class MiniGame19_Manager : MiniGameSingleton<MiniGame19_Manager>
     public UILabel button1Label, button2Label, button3Label, button4Label;
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Количество неправильных ответов
     /// </summary>
     private int _errorCount = 0;
@@ -103,13 +99,10 @@ public class MiniGame19_Manager : MiniGameSingleton<MiniGame19_Manager>
     /// Инициализация новой игры
     /// </summary>
     /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
+    public override void NewGame(float time)
     {
-        Init();
-        Show();
+        base.NewGame(time);
 
-        _time = time;
-        _isPlay = true;
         StartCoroutine(SetNewRandomInstrument());
     }
 

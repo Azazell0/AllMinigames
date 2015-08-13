@@ -13,10 +13,6 @@ public class MiniGame28_Manager : MiniGameSingleton<MiniGame28_Manager>
     public UISprite spriteCarLarge;
     public Car car1, car2, car3;
 
-    /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
     private Car _currentCar;
 
     #endregion
@@ -58,19 +54,6 @@ public class MiniGame28_Manager : MiniGameSingleton<MiniGame28_Manager>
 	public void CloseMenu()
     {
         Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     public void CorrectButtonClick()

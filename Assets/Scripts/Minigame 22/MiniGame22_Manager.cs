@@ -21,10 +21,6 @@ public class MiniGame22_Manager : MiniGameSingleton<MiniGame22_Manager>
     public Transform containerNoiseSources;
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Список всех источников шума
     /// </summary>
     private List<NoiseSource> _listNoiseSources;
@@ -65,19 +61,6 @@ public class MiniGame22_Manager : MiniGameSingleton<MiniGame22_Manager>
             MiniGameHelper.FindChildObjects<NoiseSource>(containerNoiseSources, ref _listNoiseSources);
         _listNoiseSourcesNow = new List<NoiseSource>(_listNoiseSources);
         UpdateCountLabel();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     public void WasFindNoise(NoiseSource ns)

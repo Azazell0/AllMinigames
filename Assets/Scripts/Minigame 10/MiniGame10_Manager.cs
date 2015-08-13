@@ -40,10 +40,6 @@ public class MiniGame10_Manager : MiniGameSingleton<MiniGame10_Manager>
     /// При старте игры является копией buildObjectsList
     /// </summary>
     private List<BuildObject> _buildObjectsCopyList;
-    /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
 
     #endregion
 
@@ -85,19 +81,6 @@ public class MiniGame10_Manager : MiniGameSingleton<MiniGame10_Manager>
     public void CloseMenu()
     {
         Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     /// <summary>
@@ -201,7 +184,7 @@ public class MiniGame10_Manager : MiniGameSingleton<MiniGame10_Manager>
     protected override MiniGameResult GetResult()
     {
         if (_time <= 0 && HideElementsCount > 4)
-            return MiniGameResult.TimeOut;
+            return MiniGameResult.Bronze;
         else if (HideElementsCount == 0)
             return MiniGameResult.Gold;
         else if (HideElementsCount > 0 && HideElementsCount < 2)

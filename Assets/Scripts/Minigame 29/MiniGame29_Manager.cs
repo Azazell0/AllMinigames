@@ -21,10 +21,6 @@ public class MiniGame29_Manager : MiniGameSingleton<MiniGame29_Manager>
     public Transform ProductGeneratorsContainer;
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Количество собранных вегетарианских продуктов
     /// </summary>
     private int _productCount = 0;
@@ -88,19 +84,6 @@ public class MiniGame29_Manager : MiniGameSingleton<MiniGame29_Manager>
 	public void CloseMenu()
     {
         Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     /// <summary>

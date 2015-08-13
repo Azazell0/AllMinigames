@@ -11,10 +11,6 @@ public class MiniGame32_Manager : MiniGameSingleton<MiniGame32_Manager>
     public UILabel labelTime;
 
     /// <summary>
-    /// Время до окончания игры
-    /// </summary>
-    private float _time = 0f;
-    /// <summary>
     /// Количество совершенных игроком ошибок
     /// </summary>
     private int _errorCount = 0;
@@ -49,19 +45,6 @@ public class MiniGame32_Manager : MiniGameSingleton<MiniGame32_Manager>
 	public void CloseMenu()
     {
         Hide();
-    }
-
-    /// <summary>
-    /// Инициализация новой игры
-    /// </summary>
-    /// <param name="time">Время для прохождения</param>
-    public void NewGame(float time)
-    {
-        Init();
-        Show();
-
-        _time = time;
-        _isPlay = true;
     }
 
     public void CorrectButtonClick()
